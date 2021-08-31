@@ -17,16 +17,17 @@ public class SampleController {
     private final SampleService sampleService;
 
     @GetMapping
-    public UserDetailResponse getUserDetail(@RequestParam Long id) throws Exception {
+    public UserDetailResponse getUserDetail(@RequestParam Long id){
         return new UserDetailResponse(sampleService.findUserById(id));
     }
 
     @PostMapping
-    public UserDetailResponse saveUser(@RequestBody SaveUserRequest req) throws Exception {
+    public UserDetailResponse saveUser(@RequestBody SaveUserRequest req){
         return new UserDetailResponse(sampleService.saveUser(
                 new UserDto(
                         null,
                         req.getName(),
+                        req.getGender(),
                         DateUtil.parseStringToDate(req.getBirth())
                 )
         ));

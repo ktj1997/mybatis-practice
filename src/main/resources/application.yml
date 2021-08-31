@@ -4,3 +4,5 @@ spring:
     url: ${DATASOURCE_URL}
     password: ${DATASOURCE_PASSWORD}
     username: ${DATASOURCE_USERNAME}
+    schema: classpath:schema/schema.sql
+    initialization-mode: always
